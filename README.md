@@ -1,268 +1,221 @@
 # Awesome-Continuous-Integration
 
-# 顶级持续集成（CI）平台生态系统
+# Top Continuous Integration (CI) Platform Ecosystem
 
 
 
-**精选 SaaS 产品与开源 GitHub 项目**
+**Curated SaaS Products & Open-Source GitHub Projects**
 
-*聚焦流水线编排、构建自动化、测试执行与制品管理*
+*Focused on pipeline orchestration, build automation, test execution, and artifact management*
 
-**最后更新：2026 年 9 月**
+**Last Updated: September 2026**
 
 
 
-本仓库追踪 **持续集成（CI）** 领域的知名 **SaaS 平台** 与 **开源项目**。这些工具帮助开发团队在代码提交后自动构建、测试和验证软件，缩短反馈周期，确保代码质量。
+This repository tracks notable **SaaS platforms** and **open-source projects** in the **Continuous Integration (CI)** ecosystem. These tools help development teams automatically build, test, and validate software after code commits, shortening feedback cycles and ensuring code quality.
 
 
 
-**示例** 包括 CircleCI、GitHub Actions、GitLab CI/CD、Jenkins、Buildkite、Semaphore CI、Travis CI、Bitrise、Codefresh 和 TeamCity（该领域的领先者）。
+**Examples** include CircleCI, GitHub Actions, GitLab CI/CD, Jenkins, Buildkite, Semaphore CI, Travis CI, Bitrise, Codefresh, and TeamCity (leaders in this space).
 
 
 
-**开源重点**：CI 是开源生态 **最成熟、最丰富** 的领域之一。从 Jenkins 到 Tekton，从 Drone 到 Woodpecker，开源 CI 引擎覆盖了从简单构建到大规模分布式流水线的全部场景。**本地优先** 和 **自托管** 是当前开源 CI 的核心趋势——**preloop** 让你在本地运行 GitHub Actions 工作流，**Fluent CI** 基于 Dagger 实现“在任何地方以一致方式运行流水线”，**SimpleCI** 用单个 Go 二进制替代 Jenkins 的复杂性。
+**Open-Source Highlights**: CI is one of the **most mature and rich** domains in the open-source ecosystem. From Jenkins to Tekton, and Drone to Woodpecker, open-source CI engines cover everything from simple builds to large-scale distributed pipelines. **Local-first** and **self-hosted** setups are core trends in modern open-source CI—**preloop** allows running GitHub Actions workflows locally, **Fluent CI** leverages Dagger for "run pipelines consistently anywhere," and **SimpleCI** replaces Jenkins' complexity with a single Go binary.
 
 
 
-欢迎贡献！提交 PR 以添加/更新条目。保持描述事实性，并链接到官方网站。
+Contributions are welcome! Submit a PR to add/update entries. Please keep descriptions factual and link to official websites.
 
 
 
-## 目录
+## Table of Contents
 
 
 
-- [SaaS/托管平台](#saas托管平台)
+- [SaaS / Managed Platforms](#saas--managed-platforms)
 
-- [开源 GitHub 项目](#开源github项目)
+- [Open-Source GitHub Projects](#open-source-github-projects)
 
-- [如何贡献](#如何贡献)
+- [How to Contribute](#how-to-contribute)
 
-- [免责声明](#免责声明)
+- [Disclaimer](#disclaimer)
 
 
 
-## SaaS/托管平台
+## SaaS / Managed Platforms
 
+| Product | Pricing / Free Tier | Description |
+| :--- | :--- | :--- |
+| **[GitHub Actions](https://github.com/features/actions)** | **Free Tier:** 2,000 min/mo for private repos (Free plan), 3,000 min/mo (Pro). Free for public repos.<br>**Paid:** Paid plans start at $4/user/month (Team). Pay-as-you-go per additional minute. | GitHub-native CI/CD featuring 6,000+ Marketplace Actions. Workflows run on GitHub-hosted Linux, macOS, Windows, or container runners. |
+| **[GitLab CI/CD](https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/)** | **Free Tier:** 400 compute minutes/mo. Up to 50,000 mins/mo available for qualifying open-source projects.<br>**Paid:** Premium starts at $29/user/month; Ultimate at $99/user/month. | Built-in GitLab CI/CD supporting Auto DevOps and pipeline visualization. Supports Linux, macOS (beta), and Windows (beta) runners. |
+| **[CircleCI](https://circleci.com/)** | **Free Tier:** 6,000 build minutes/mo (up to 30,000 credits/mo free). Free tier available for open source.<br>**Paid:** Performance plan starts at $15/month (includes 3 credits users/mo). Scale plan with custom pricing. | Cloud-native CI/CD known for Docker layer caching and parallel execution. *Note: Cirrus CI shuts down June 1, 2026 and is no longer an option.* |
+| **[Jenkins Cloud](https://www.jenkins.io/)** | **Free Tier:** Self-hosted core is 100% free/open-source.<br>**Paid:** Managed hosting pricing varies by third-party providers (e.g., CloudBees). | Extensible automation server with 1,800+ plugins. De facto standard for traditional self-hosted CI; cloud-managed options provided by third parties. |
+| **[Buildkite](https://buildkite.com/)** | **Free Tier:** Free for open-source & small teams (up to 3 users).<br>**Paid:** Essentials plan starts at $15/user/month; Enterprise custom pricing. | Hybrid CI/CD—agents run on your own infrastructure while the UI is hosted in the cloud. Open-source agent written in Go enables secure build execution on any device or network. |
+| **[Semaphore CI](https://semaphoreci.com/)** | **Free Tier:** $10/mo free credit (~1,300 build minutes/mo).<br>**Paid:** Startup plan starts at $20/month; scale-up plans based on usage. | High-performance CI/CD renowned for test parallelization capabilities. |
+| **[Travis CI](https://travis-ci.com/)** | **Free Tier:** Trial plan with 10,000 build credits for first-time users.<br>**Paid:** Core plan starts at $64/month for 2 concurrent jobs. | Pioneer of early cloud CI with deep GitHub integration. Still operational, though market share has declined significantly. |
+| **[Bitrise](https://www.bitrise.io/)** | **Free Tier:** Free plan with 300 build credits/mo for single developers.<br>**Paid:** Teams plan starts around $99/month; Enterprise custom pricing. | Mobile CI/CD specialist focused on iOS and Android builds, testing, and deployment. |
+| **[Codefresh](https://codefresh.io/)** | **Free Tier:** Community free tier (up to 120 builds/mo, 1 concurrent pipeline).<br>**Paid:** Enterprise custom pricing (acquired by Harness). | CI/CD platform tailored for Kubernetes and Docker, now acquired by Harness. |
+| **[TeamCity](https://www.jetbrains.com/teamcity/)** | **Free Tier:** TeamCity On-Premises is free for up to 100 build configurations & 3 build agents. TeamCity Cloud offers a free trial.<br>**Paid:** On-Premises licenses start at $299/year; Cloud starts at $45/month. | JetBrains' CI/CD server known for robust build configuration management and deep integration with the .NET/Java ecosystem. |
 
 
-- **[GitHub Actions](https://github.com/features/actions)**
 
-  GitHub 原生 CI/CD，拥有 6,000+ 市场 Action。工作流在 GitHub 托管的 Linux、macOS、Windows 或容器运行器上执行。开源仓库免费，私有仓库有使用限额 。
+## Open-Source GitHub Projects
 
 
 
-- **[GitLab CI/CD](https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/)**
-
-  GitLab 内置的 CI/CD，支持 Auto DevOps 和流水线可视化。支持 Linux、macOS（beta）、Windows（beta）运行器。开源项目可申请 50,000 分钟免费额度 。
-
-
-
-- **[CircleCI](https://circleci.com/)**
-
-  云原生 CI/CD，以 Docker 层缓存和并行执行著称。提供开源项目免费额度。注意：**Cirrus CI 将于 2026 年 6 月 1 日关停**，不再是可选方案 。
-
-
-
-- **[Jenkins Cloud](https://www.jenkins.io/)**
-
-  可扩展的自动化服务器，拥有 1,800+ 插件。传统自托管 CI 的事实标准，云托管选项由第三方提供 。
-
-
-
-- **[Buildkite](https://buildkite.com/)**
-
-  混合 CI/CD——Agent 运行在你自己的基础设施上，UI 在云端。开源 Agent 用 Go 编写，支持在任何设备或网络上安全运行构建任务 。
-
-
-
-- **[Semaphore CI](https://semaphoreci.com/)**
-
-  高性能 CI/CD，以测试并行化能力著称 。
-
-
-
-- **[Travis CI](https://travis-ci.com/)**
-
-  早期云 CI 的先驱，与 GitHub 深度集成。仍在运营但市场份额已大幅下降。
-
-
-
-- **[Bitrise](https://www.bitrise.io/)**
-
-  移动端 CI/CD 专家，专注于 iOS 和 Android 构建、测试和部署。
-
-
-
-- **[Codefresh](https://codefresh.io/)**
-
-  面向 Kubernetes 和 Docker 的 CI/CD 平台，已被 Harness 收购。
-
-
-
-- **[TeamCity](https://www.jetbrains.com/teamcity/)**
-
-  JetBrains 的 CI/CD 服务器，以强大的构建配置管理和 .NET/Java 生态集成著称。
-
-
-
-## 开源 GitHub 项目
-
-
-
-### 本地优先 CI
+### Local-First CI
 
 
 
 - **[preloop](https://github.com/preloopdev/preloop)**
 
-  **本地自托管的 GitHub Actions 等价方案。** 引擎接受与 GitHub 相同的工作流格式：`${{ }}` 表达式、矩阵构建、可复用工作流、并发组、OIDC 等。在硬件隔离的 **microVM** 上执行，可在 Windows/macOS/Linux 运行，**300ms 恢复**。你的 `.github/workflows` 文件 **无需修改** 即可运行，支持针对 **未提交更改** 运行 CI。使用官方 `actions/runner` 协议，无需消耗 GitHub 托管分钟数。Rust 运行器比官方二进制小 10 倍，内存占用低 10 倍。控制平面 RSS 约 **15MB**。支持 DAP 调试器，可在失败时暂停并检查上下文 。
+  **Local self-hosted GitHub Actions equivalent.** The engine accepts the exact same workflow format as GitHub: `${{ }}` expressions, matrix builds, reusable workflows, concurrency groups, OIDC, etc. Executes inside hardware-isolated **microVMs** on Windows/macOS/Linux with **300ms recovery time**. Your `.github/workflows` files run **without modification**, supporting CI runs against **uncommitted changes**. Uses the official `actions/runner` protocol without consuming GitHub-hosted minutes. The Rust runner is 10x smaller in binary size and 10x lower in memory footprint compared to official binaries. Control plane RSS is ~**15MB**. Includes DAP debugger support to pause and inspect context on failure.
 
 
 
 - **[Fluent CI](https://github.com/fluentci-io/fluentci)**
 
-  **基于 Dagger、Wasm 和 Deno 的自托管 CI/CD 工具。** 完全免费开源。核心特点：**单命令管理流水线**（`fluentci init && fluentci`），在 **任何机器上运行**（本地、远程、云、物理服务器、VM，x86 或 ARM），**导出到任何 CI 提供商**（GitHub Actions、GitLab CI、Azure Pipelines、AWS CodePipeline、CircleCI 等）。内置 **流水线注册表**，搜索使用他人为 Django、React、Node 等框架构建的预置流水线。支持 Web UI（FluentCI Studio）。可选 Nix 环境替代 Docker 。
+  **Self-hosted CI/CD tool powered by Dagger, Wasm, and Deno.** Completely free and open-source. Key features: **Single-command pipeline management** (`fluentci init && fluentci`), runs on **any machine** (local, remote, cloud, bare-metal, VM, x86, or ARM), and **exports to any CI provider** (GitHub Actions, GitLab CI, Azure Pipelines, AWS CodePipeline, CircleCI, etc.). Built-in **pipeline registry** to search and use pre-built pipelines for Django, React, Node, etc. Supports Web UI (FluentCI Studio). Optional Nix environment as a Docker alternative.
 
 
 
 - **[SimpleCI](https://github.com/haatos/simple-ci)**
 
-  **轻量级自托管 CI，用单个 Go 二进制替代 Jenkins 的复杂性。** 100% Go 代码库，使用 **templ** 做服务端渲染，**HTMX** 做动态 UI——无重型 JavaScript 框架。架构：中心 **控制器**（Web 应用）管理凭据、Agent 和流水线；**Agent** 是通过 SSH 连接的远程机器，执行 YAML 定义的流水线。功能包括 **凭据加密存储**、**Agent 编排**、**YAML 流水线定义**（从 Git 仓库读取）、**Cron 调度**、**Web 仪表板**（实时构建日志）、**Webhook 集成**（GitHub/GitLab push/PR 触发）、**制品存储**。SQLite 数据库，**无需 Node.js，无需 Docker** 。
+  **Lightweight self-hosted CI replacing Jenkins complexity with a single Go binary.** 100% Go codebase using **templ** for server-side rendering and **HTMX** for dynamic UI—no heavy JavaScript frameworks. Architecture: Central **Controller** (web app) manages credentials, agents, and pipelines; **Agents** are remote machines connected via SSH executing YAML-defined pipelines. Features include **encrypted credential storage**, **agent orchestration**, **YAML pipeline definitions** (read directly from Git repos), **Cron scheduling**, **Web Dashboard** (live build logs), **Webhook integration** (GitHub/GitLab push/PR triggers), and **artifact storage**. SQLite database—**no Node.js, no Docker required**.
 
 
 
-### 全功能 CI/CD 服务器
+### Full-Featured CI/CD Servers
 
 
 
 - **[Jenkins](https://github.com/jenkinsci/jenkins)**
 
-  **CI 领域的开源鼻祖和事实标准。** 拥有 **1,800+ 插件**，几乎可以自动化任何任务。支持任何 VCS（git、mercurial、cvs、subversion）。虽然 UI 相对陈旧、维护成本较高，但仍是企业自托管 CI 的默认选择。**开源** 。
+  **The open-source pioneer and de facto standard of the CI domain.** Boasts **1,800+ plugins** to automate virtually any task. Supports any VCS (git, mercurial, cvs, subversion). Though its UI is dated and maintenance overhead is high, it remains the default enterprise choice for self-hosted CI. **Open source**.
 
 
 
 - **[GoCD](https://github.com/gocd/gocd)**
 
-  **开源本地部署持续交付工具。** 以 **流水线可视化** 和 **价值流图** 著称，帮助团队理解从提交到部署的完整流程。支持 Git、Perforce、Mercurial、Subversion、TFS 和自定义 VCS。**开源** 。
+  **Open-source on-premises continuous delivery tool.** Known for **pipeline visualization** and **Value Stream Maps**, helping teams visualize end-to-end workflows from commit to deployment. Supports Git, Perforce, Mercurial, Subversion, TFS, and custom VCS. **Open source**.
 
 
 
 - **[Drone CI](https://github.com/drone/drone)**
 
-  **容器原生 CI/CD 服务。** 社区版 **Apache 2.0** 许可。支持 GitHub、GitLab、Gitea、BitBucket 和自定义 Git 服务。以 **简洁的 YAML 语法** 和 **Docker 优先设计** 闻名。被 Harness 收购后社区版仍免费自托管 。
+  **Container-native CI/CD service.** Community edition licensed under **Apache 2.0**. Supports GitHub, GitLab, Gitea, BitBucket, and custom Git services. Famous for its **clean YAML syntax** and **Docker-first design**. Following its acquisition by Harness, the community edition remains free for self-hosting.
 
 
 
 - **[Woodpecker CI](https://github.com/woodpecker-ci/woodpecker)**
 
-  **Drone CI 的轻量级社区分支。** 在 Drone 被收购后，社区接管维护，保持开源精神。支持多 forge（GitHub、GitLab、Gitea、Forgejo、Bitbucket）。**轻量级 CI 引擎**，适合希望从 Drone 迁移或寻求更简单替代方案的小型团队 。
+  **Lightweight community fork of Drone CI.** Maintained by the community following Drone's acquisition to preserve the open-source spirit. Supports multiple forges (GitHub, GitLab, Gitea, Forgejo, Bitbucket). **Lightweight CI engine** ideal for small teams migrating from Drone or seeking a simpler alternative.
 
 
 
 - **[Tekton](https://github.com/tektoncd/pipeline)**
 
-  **Kubernetes 原生 CI/CD 构建块。** 作为 **CD Foundation** 项目，Tekton 提供在 Kubernetes 集群内运行流水线的标准方式。Jenkins X 使用 Tekton 作为 Kubernetes 上的云原生流水线引擎 。
+  **Kubernetes-native CI/CD building block.** As a **CD Foundation** project, Tekton provides a standardized way to run pipelines inside Kubernetes clusters. Jenkins X uses Tekton as its cloud-native pipeline engine on Kubernetes.
 
 
 
 - **[Agola](https://github.com/agola-io/agola)**
 
-  **重新定义 CI/CD。** 开源、自托管，支持 Docker 和 Kubernetes 后端。以 **1,506 stars** 和 **117 forks** 在持续交付领域获得关注。**开源** 。
+  **Redefining CI/CD.** Open-source and self-hosted, supporting Docker and Kubernetes backends. Gaining traction in the continuous delivery space with **1,506 stars** and **117 forks**. **Open source**.
 
 
 
 - **[Kraken CI](https://kraken.ci/)**
 
-  **现代开源本地 CI/CD 系统，高度可扩展且专注于测试。** 使用 **Starlark/Python** 定义工作流。执行器支持 **裸金属、Docker、LXD、VM**。可扩展到 **数千个执行器**。提供 **复杂的测试结果分析**、邮件和 Slack 通知。**开源** 。
+  **Modern open-source on-premise CI/CD system, highly scalable and test-focused.** Workflows defined using **Starlark/Python**. Executors support **bare-metal, Docker, LXD, and VMs**. Scales to **thousands of executors**. Offers **sophisticated test result analysis**, email, and Slack notifications. **Open source**.
 
 
 
 - **[LAVA](https://www.lavasoftware.org/)**
 
-  **Linaro 自动化验证架构——面向硬件和操作系统的持续集成系统。** 专门用于 **将操作系统部署到物理和虚拟硬件上运行测试**。测试类型包括简单启动测试、引导加载程序测试和系统级测试。结果随时间跟踪并可导出分析。Debian 提供 `lava-server` 包。**开源** 。
+  **Linaro Automated Validation Architecture—a CI system for hardware and operating systems.** Specially designed for **deploying operating systems onto physical and virtual hardware for testing**. Test types include simple boot tests, bootloader tests, and system-level tests. Results are tracked over time and exportable for analysis. Debian provides the `lava-server` package. **Open source**.
 
 
 
 - **[PikoCI](https://github.com/pikoci/pikoci)**
 
-  **Concourse 精神的自托管 CI。** 资源模型直接 **受 Concourse 启发**。主要区别：用 **Runners** 替代 `task image_resource`，单二进制部署（非多服务 + PostgreSQL 架构），支持 Vault 和文件密钥。流水线用 **HCL** 定义。支持 **Docker Compose** 一键评估。**PikoCI 用自己的 CI 跑自己的流水线**（dogfooding）。
+  **Self-hosted CI in the spirit of Concourse.** Resource model directly **inspired by Concourse**. Key differences: Uses **Runners** instead of `task image_resource`, single binary deployment (instead of multi-service + PostgreSQL architecture), and supports Vault and file secrets. Pipelines defined in **HCL**. Supports **Docker Compose** one-click evaluation. **PikoCI runs its own pipelines with its own CI** (dogfooding).
 
 
 
 - **[Pipewright](https://github.com/huangchengsir/pipewright)**
 
-  **单 Go 二进制的轻量自托管 CI/CD + 部署 + 运维平台。** 零依赖。支持 **Pipeline as Code**——将流水线结构提交到 `.pipewright.yml`，与代码同源、可在 PR 中审查、按分支演进。如果 YAML 文件缺失或无效，自动回退到 Canvas UI 配置，**永不破坏运行**。内置 **GitOps 流水线**、**SSH 部署**、**健康检查**、**预览环境**、**异常检测**、**服务器指标采样**。Vue 3 前端嵌入二进制 。
+  **Single Go binary lightweight self-hosted CI/CD + deployment + ops platform.** Zero dependencies. Supports **Pipeline as Code**—commit pipeline structure into `.pipewright.yml` alongside code, reviewable in PRs, evolving per branch. Automatically falls back to Canvas UI configuration if the YAML file is missing or invalid, **never breaking runs**. Features built-in **GitOps pipelines**, **SSH deployment**, **health checks**, **preview environments**, **anomaly detection**, and **server metric sampling**. Vue 3 frontend embedded in binary.
 
 
 
-### 流水线引擎与工具
+### Pipeline Engines & Tooling
 
 
 
 - **[Dagger](https://dagger.io/)**
 
-  **可编程 CI/CD 引擎，在容器中运行流水线。** 让流水线在笔记本和 CI 环境间 **可移植且一致**。“在我的机器上能跑”问题的根治方案。支持 GitHub、GitLab、Gitea。**开源** 。
+  **Programmable CI/CD engine that runs pipelines inside containers.** Makes pipelines **portable and consistent** between developer laptops and CI environments—a direct cure for the "works on my machine" problem. Supports GitHub, GitLab, and Gitea. **Open source**.
 
 
 
 - **[gitlab-ci-local](https://github.com/firecow/gitlab-ci-local)**
 
-  **在本地运行 GitLab CI/CD 流水线，而非推送到远程测试。** 支持 Docker 和 shell 执行器、变量展开、includes、缓存、制品、services、并行作业。**MIT 许可** 。
+  **Run GitLab CI/CD pipelines locally instead of pushing to remote servers to test.** Supports Docker and shell executors, variable expansion, includes, caching, artifacts, services, and parallel jobs. **MIT licensed**.
 
 
 
 - **[Dagu](https://github.com/dagu-org/dagu)**
 
-  **开发者友好的极简 Cron 替代品**，能力远超传统 Cron。**1,618 stars**。用于复杂任务编排 。
+  **Developer-friendly minimalist Cron replacement** with capabilities far exceeding traditional Cron. **1,618 stars**. Designed for complex task orchestration.
 
 
 
-### 其他强开源选项
+### Other Strong Open-Source Options
 
 
 
-- **本地/轻量**：**preloop**（GitHub Actions 本地运行）、**SimpleCI**（Go 单二进制）、**Fluent CI**（Dagger 驱动）、**gitlab-ci-local**（GitLab 本地运行）。
+- **Local / Lightweight**: **preloop** (runs GitHub Actions locally), **SimpleCI** (single Go binary), **Fluent CI** (Dagger-powered), **gitlab-ci-local** (runs GitLab CI locally).
 
-- **全功能服务器**：**Jenkins**（1,800+ 插件）、**GoCD**（流水线可视化）、**Drone**（容器原生）、**Woodpecker**（Drone 分支）、**Tekton**（K8s 原生）。
+- **Full-Featured Servers**: **Jenkins** (1,800+ plugins), **GoCD** (pipeline visualization), **Drone** (container-native), **Woodpecker** (Drone fork), **Tekton** (K8s-native).
 
-- **可扩展/测试聚焦**：**Kraken CI**（Starlark/Python，数千执行器）、**LAVA**（硬件/OS 测试）、**Agola**（Docker/K8s）。
+- **Scalable / Test-Focused**: **Kraken CI** (Starlark/Python, thousands of executors), **LAVA** (hardware/OS testing), **Agola** (Docker/K8s).
 
-- **一体化平台**：**Pipewright**（CI/CD + 部署 + 运维，Pipeline as Code）。
-
-
-
-**构建自定义系统的框架**：以 **Tekton** 或 **Drone** 为流水线引擎，**preloop** 或 **gitlab-ci-local** 实现本地开发反馈循环，**Dagger** 保证环境一致性，**Pipewright** 提供一体化自托管平台。用 **Argo CD** 或 **Flux** 补充 GitOps 部署能力。
+- **All-in-One Platform**: **Pipewright** (CI/CD + deployment + ops, Pipeline as Code).
 
 
 
-## 如何贡献
+**Framework for building custom systems**: Use **Tekton** or **Drone** as the pipeline engine, **preloop** or **gitlab-ci-local** for local dev feedback loops, **Dagger** to guarantee environment consistency, and **Pipewright** for an all-in-one self-hosted platform. Complement with **Argo CD** or **Flux** for GitOps deployment capabilities.
 
 
 
-1. Fork 仓库。
-
-2. 在 `README.md` 中添加/编辑条目（遵循现有格式）。
-
-3. 包含：名称、链接、1–2 句描述，以及是 SaaS 还是开源。
-
-4. 提交 PR 并附简短说明。
+## How to Contribute
 
 
 
-如果你觉得这个仓库有用，请点星！
+1. Fork the repository.
+
+2. Add/edit entries in `README.md` (following the existing format).
+
+3. Include: Name, link, 1–2 sentence description, and whether it is SaaS or open source.
+
+4. Submit a PR with a brief explanation.
 
 
 
-## 免责声明
+If you find this repository useful, please give it a star!
 
 
 
-- 这是一个 **社区精选** 列表——并非详尽无遗，也不构成认可。
+## Disclaimer
 
-- CI 平台处理源代码和构建制品；确保访问控制和密钥管理符合安全策略。
 
-- **开源现实**：CI 是 **开源生态最成熟的领域之一**。**preloop** 让你在本地以 300ms 恢复速度运行 GitHub Actions 工作流 。**Fluent CI** 基于 Dagger 实现跨环境一致性 。**SimpleCI** 用单个 Go 二进制替代 Jenkins 的复杂性 。**Kraken CI** 可扩展到数千执行器并专注测试分析 。**Pipewright** 提供 CI/CD + 部署 + 运维的一体化单二进制方案 。对于需要 **企业级支持、托管运行器、深度 IDE 集成** 的团队，商业平台（GitHub Actions、CircleCI、Buildkite）仍是首选——但开源替代方案在自托管场景下 **完全可行**。
+
+- This is a **community-curated** list—it is neither exhaustive nor an endorsement.
+
+- CI platforms handle source code and build artifacts; ensure access controls and secret management align with your security policies.
+
+- **Open-Source Reality**: CI is **one of the most mature domains in the open-source ecosystem**. **preloop** lets you run GitHub Actions workflows locally with 300ms recovery time. **Fluent CI** leverages Dagger for cross-environment consistency. **SimpleCI** replaces Jenkins' complexity with a single Go binary. **Kraken CI** scales to thousands of executors with a focus on test analytics. **Pipewright** provides an all-in-one single-binary solution for CI/CD + deployment + ops. For teams requiring **enterprise support, managed runners, and deep IDE integration**, commercial platforms (GitHub Actions, CircleCI, Buildkite) remain top choices—but open-source alternatives are **completely viable** for self-hosted scenarios.
 
 
 
@@ -270,6 +223,6 @@
 
 
 
-**为 DevOps 工程师、平台团队、SRE 和开发者打造。**
+**Built for DevOps engineers, platform teams, SREs, and developers.**
 
-让持续集成更开放、透明、高效。
+Making continuous integration more open, transparent, and efficient.
