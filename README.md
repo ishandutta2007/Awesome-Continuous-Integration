@@ -1,228 +1,143 @@
-# Awesome-Continuous-Integration
-
-# Top Continuous Integration (CI) Platform Ecosystem
-
-
-
-**Curated SaaS Products & Open-Source GitHub Projects**
-
-*Focused on pipeline orchestration, build automation, test execution, and artifact management*
-
-**Last Updated: September 2026**
-
-
-
-This repository tracks notable **SaaS platforms** and **open-source projects** in the **Continuous Integration (CI)** ecosystem. These tools help development teams automatically build, test, and validate software after code commits, shortening feedback cycles and ensuring code quality.
-
-
-
-**Examples** include CircleCI, GitHub Actions, GitLab CI/CD, Jenkins, Buildkite, Semaphore CI, Travis CI, Bitrise, Codefresh, and TeamCity (leaders in this space).
-
-
-
-**Open-Source Highlights**: CI is one of the **most mature and rich** domains in the open-source ecosystem. From Jenkins to Tekton, and Drone to Woodpecker, open-source CI engines cover everything from simple builds to large-scale distributed pipelines. **Local-first** and **self-hosted** setups are core trends in modern open-source CI—**preloop** allows running GitHub Actions workflows locally, **Fluent CI** leverages Dagger for "run pipelines consistently anywhere," and **SimpleCI** replaces Jenkins' complexity with a single Go binary.
-
-
-
-Contributions are welcome! Submit a PR to add/update entries. Please keep descriptions factual and link to official websites.
-
-
-
-## Table of Contents
-
-
-
-- [SaaS / Managed Platforms](#saas--managed-platforms)
-
-- [Open-Source GitHub Projects](#open-source-github-projects)
-
-- [How to Contribute](#how-to-contribute)
-
-- [Disclaimer](#disclaimer)
-
-
-
-## SaaS / Managed Platforms
-
-| Product | Pricing / Free Tier | Description |
-| :--- | :--- | :--- |
-| **[GitHub Actions](https://github.com/features/actions)** | **Free Tier:** 2,000 min/mo for private repos (Free plan), 3,000 min/mo (Pro). Free for public repos.<br>**Paid:** Paid plans start at $4/user/month (Team). Pay-as-you-go per additional minute. | GitHub-native CI/CD featuring 6,000+ Marketplace Actions. Workflows run on GitHub-hosted Linux, macOS, Windows, or container runners. |
-| **[GitLab CI/CD](https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/)** | **Free Tier:** 400 compute minutes/mo. Up to 50,000 mins/mo available for qualifying open-source projects.<br>**Paid:** Premium starts at $29/user/month; Ultimate at $99/user/month. | Built-in GitLab CI/CD supporting Auto DevOps and pipeline visualization. Supports Linux, macOS (beta), and Windows (beta) runners. |
-| **[CircleCI](https://circleci.com/)** | **Free Tier:** 6,000 build minutes/mo (up to 30,000 credits/mo free). Free tier available for open source.<br>**Paid:** Performance plan starts at $15/month (includes 3 credits users/mo). Scale plan with custom pricing. | Cloud-native CI/CD known for Docker layer caching and parallel execution. *Note: Cirrus CI shuts down June 1, 2026 and is no longer an option.* |
-| **[Jenkins Cloud](https://www.jenkins.io/)** | **Free Tier:** Self-hosted core is 100% free/open-source.<br>**Paid:** Managed hosting pricing varies by third-party providers (e.g., CloudBees). | Extensible automation server with 1,800+ plugins. De facto standard for traditional self-hosted CI; cloud-managed options provided by third parties. |
-| **[Buildkite](https://buildkite.com/)** | **Free Tier:** Free for open-source & small teams (up to 3 users).<br>**Paid:** Essentials plan starts at $15/user/month; Enterprise custom pricing. | Hybrid CI/CD—agents run on your own infrastructure while the UI is hosted in the cloud. Open-source agent written in Go enables secure build execution on any device or network. |
-| **[Semaphore CI](https://semaphoreci.com/)** | **Free Tier:** $10/mo free credit (~1,300 build minutes/mo).<br>**Paid:** Startup plan starts at $20/month; scale-up plans based on usage. | High-performance CI/CD renowned for test parallelization capabilities. |
-| **[Travis CI](https://travis-ci.com/)** | **Free Tier:** Trial plan with 10,000 build credits for first-time users.<br>**Paid:** Core plan starts at $64/month for 2 concurrent jobs. | Pioneer of early cloud CI with deep GitHub integration. Still operational, though market share has declined significantly. |
-| **[Bitrise](https://www.bitrise.io/)** | **Free Tier:** Free plan with 300 build credits/mo for single developers.<br>**Paid:** Teams plan starts around $99/month; Enterprise custom pricing. | Mobile CI/CD specialist focused on iOS and Android builds, testing, and deployment. |
-| **[Codefresh](https://codefresh.io/)** | **Free Tier:** Community free tier (up to 120 builds/mo, 1 concurrent pipeline).<br>**Paid:** Enterprise custom pricing (acquired by Harness). | CI/CD platform tailored for Kubernetes and Docker, now acquired by Harness. |
-| **[TeamCity](https://www.jetbrains.com/teamcity/)** | **Free Tier:** TeamCity On-Premises is free for up to 100 build configurations & 3 build agents. TeamCity Cloud offers a free trial.<br>**Paid:** On-Premises licenses start at $299/year; Cloud starts at $45/month. | JetBrains' CI/CD server known for robust build configuration management and deep integration with the .NET/Java ecosystem. |
-
-
-
-## Open-Source GitHub Projects
-
-
-
-### Local-First CI
-
-
-
-- **[preloop](https://github.com/preloopdev/preloop)**
-
-  **Local self-hosted GitHub Actions equivalent.** The engine accepts the exact same workflow format as GitHub: `${{ }}` expressions, matrix builds, reusable workflows, concurrency groups, OIDC, etc. Executes inside hardware-isolated **microVMs** on Windows/macOS/Linux with **300ms recovery time**. Your `.github/workflows` files run **without modification**, supporting CI runs against **uncommitted changes**. Uses the official `actions/runner` protocol without consuming GitHub-hosted minutes. The Rust runner is 10x smaller in binary size and 10x lower in memory footprint compared to official binaries. Control plane RSS is ~**15MB**. Includes DAP debugger support to pause and inspect context on failure.
-
-
-
-- **[Fluent CI](https://github.com/fluentci-io/fluentci)**
-
-  **Self-hosted CI/CD tool powered by Dagger, Wasm, and Deno.** Completely free and open-source. Key features: **Single-command pipeline management** (`fluentci init && fluentci`), runs on **any machine** (local, remote, cloud, bare-metal, VM, x86, or ARM), and **exports to any CI provider** (GitHub Actions, GitLab CI, Azure Pipelines, AWS CodePipeline, CircleCI, etc.). Built-in **pipeline registry** to search and use pre-built pipelines for Django, React, Node, etc. Supports Web UI (FluentCI Studio). Optional Nix environment as a Docker alternative.
-
-
-
-- **[SimpleCI](https://github.com/haatos/simple-ci)**
-
-  **Lightweight self-hosted CI replacing Jenkins complexity with a single Go binary.** 100% Go codebase using **templ** for server-side rendering and **HTMX** for dynamic UI—no heavy JavaScript frameworks. Architecture: Central **Controller** (web app) manages credentials, agents, and pipelines; **Agents** are remote machines connected via SSH executing YAML-defined pipelines. Features include **encrypted credential storage**, **agent orchestration**, **YAML pipeline definitions** (read directly from Git repos), **Cron scheduling**, **Web Dashboard** (live build logs), **Webhook integration** (GitHub/GitLab push/PR triggers), and **artifact storage**. SQLite database—**no Node.js, no Docker required**.
-
-
-
-### Full-Featured CI/CD Servers
-
-
-
-- **[Jenkins](https://github.com/jenkinsci/jenkins)**
-
-  **The open-source pioneer and de facto standard of the CI domain.** Boasts **1,800+ plugins** to automate virtually any task. Supports any VCS (git, mercurial, cvs, subversion). Though its UI is dated and maintenance overhead is high, it remains the default enterprise choice for self-hosted CI. **Open source**.
-
-
-
-- **[GoCD](https://github.com/gocd/gocd)**
-
-  **Open-source on-premises continuous delivery tool.** Known for **pipeline visualization** and **Value Stream Maps**, helping teams visualize end-to-end workflows from commit to deployment. Supports Git, Perforce, Mercurial, Subversion, TFS, and custom VCS. **Open source**.
-
-
-
-- **[Drone CI](https://github.com/drone/drone)**
-
-  **Container-native CI/CD service.** Community edition licensed under **Apache 2.0**. Supports GitHub, GitLab, Gitea, BitBucket, and custom Git services. Famous for its **clean YAML syntax** and **Docker-first design**. Following its acquisition by Harness, the community edition remains free for self-hosting.
-
-
-
-- **[Woodpecker CI](https://github.com/woodpecker-ci/woodpecker)**
-
-  **Lightweight community fork of Drone CI.** Maintained by the community following Drone's acquisition to preserve the open-source spirit. Supports multiple forges (GitHub, GitLab, Gitea, Forgejo, Bitbucket). **Lightweight CI engine** ideal for small teams migrating from Drone or seeking a simpler alternative.
-
-
-
-- **[Tekton](https://github.com/tektoncd/pipeline)**
-
-  **Kubernetes-native CI/CD building block.** As a **CD Foundation** project, Tekton provides a standardized way to run pipelines inside Kubernetes clusters. Jenkins X uses Tekton as its cloud-native pipeline engine on Kubernetes.
-
-
-
-- **[Agola](https://github.com/agola-io/agola)**
-
-  **Redefining CI/CD.** Open-source and self-hosted, supporting Docker and Kubernetes backends. Gaining traction in the continuous delivery space with **1,506 stars** and **117 forks**. **Open source**.
-
-
-
-- **[Kraken CI](https://kraken.ci/)**
-
-  **Modern open-source on-premise CI/CD system, highly scalable and test-focused.** Workflows defined using **Starlark/Python**. Executors support **bare-metal, Docker, LXD, and VMs**. Scales to **thousands of executors**. Offers **sophisticated test result analysis**, email, and Slack notifications. **Open source**.
-
-
-
-- **[LAVA](https://www.lavasoftware.org/)**
-
-  **Linaro Automated Validation Architecture—a CI system for hardware and operating systems.** Specially designed for **deploying operating systems onto physical and virtual hardware for testing**. Test types include simple boot tests, bootloader tests, and system-level tests. Results are tracked over time and exportable for analysis. Debian provides the `lava-server` package. **Open source**.
-
-
-
-- **[PikoCI](https://github.com/pikoci/pikoci)**
-
-  **Self-hosted CI in the spirit of Concourse.** Resource model directly **inspired by Concourse**. Key differences: Uses **Runners** instead of `task image_resource`, single binary deployment (instead of multi-service + PostgreSQL architecture), and supports Vault and file secrets. Pipelines defined in **HCL**. Supports **Docker Compose** one-click evaluation. **PikoCI runs its own pipelines with its own CI** (dogfooding).
-
-
-
-- **[Pipewright](https://github.com/huangchengsir/pipewright)**
-
-  **Single Go binary lightweight self-hosted CI/CD + deployment + ops platform.** Zero dependencies. Supports **Pipeline as Code**—commit pipeline structure into `.pipewright.yml` alongside code, reviewable in PRs, evolving per branch. Automatically falls back to Canvas UI configuration if the YAML file is missing or invalid, **never breaking runs**. Features built-in **GitOps pipelines**, **SSH deployment**, **health checks**, **preview environments**, **anomaly detection**, and **server metric sampling**. Vue 3 frontend embedded in binary.
-
-
-
-### Pipeline Engines & Tooling
-
-
-
-- **[Dagger](https://dagger.io/)**
-
-  **Programmable CI/CD engine that runs pipelines inside containers.** Makes pipelines **portable and consistent** between developer laptops and CI environments—a direct cure for the "works on my machine" problem. Supports GitHub, GitLab, and Gitea. **Open source**.
-
-
-
-- **[gitlab-ci-local](https://github.com/firecow/gitlab-ci-local)**
-
-  **Run GitLab CI/CD pipelines locally instead of pushing to remote servers to test.** Supports Docker and shell executors, variable expansion, includes, caching, artifacts, services, and parallel jobs. **MIT licensed**.
-
-
-
-- **[Dagu](https://github.com/dagu-org/dagu)**
-
-  **Developer-friendly minimalist Cron replacement** with capabilities far exceeding traditional Cron. **1,618 stars**. Designed for complex task orchestration.
-
-
-
-### Other Strong Open-Source Options
-
-
-
-- **Local / Lightweight**: **preloop** (runs GitHub Actions locally), **SimpleCI** (single Go binary), **Fluent CI** (Dagger-powered), **gitlab-ci-local** (runs GitLab CI locally).
-
-- **Full-Featured Servers**: **Jenkins** (1,800+ plugins), **GoCD** (pipeline visualization), **Drone** (container-native), **Woodpecker** (Drone fork), **Tekton** (K8s-native).
-
-- **Scalable / Test-Focused**: **Kraken CI** (Starlark/Python, thousands of executors), **LAVA** (hardware/OS testing), **Agola** (Docker/K8s).
-
-- **All-in-One Platform**: **Pipewright** (CI/CD + deployment + ops, Pipeline as Code).
-
-
-
-**Framework for building custom systems**: Use **Tekton** or **Drone** as the pipeline engine, **preloop** or **gitlab-ci-local** for local dev feedback loops, **Dagger** to guarantee environment consistency, and **Pipewright** for an all-in-one self-hosted platform. Complement with **Argo CD** or **Flux** for GitOps deployment capabilities.
-
-
-
-## How to Contribute
-
-
-
-1. Fork the repository.
-
-2. Add/edit entries in `README.md` (following the existing format).
-
-3. Include: Name, link, 1–2 sentence description, and whether it is SaaS or open source.
-
-4. Submit a PR with a brief explanation.
-
-
-
-If you find this repository useful, please give it a star!
-
-
-
-## Disclaimer
-
-
-
-- This is a **community-curated** list—it is neither exhaustive nor an endorsement.
-
-- CI platforms handle source code and build artifacts; ensure access controls and secret management align with your security policies.
-
-- **Open-Source Reality**: CI is **one of the most mature domains in the open-source ecosystem**. **preloop** lets you run GitHub Actions workflows locally with 300ms recovery time. **Fluent CI** leverages Dagger for cross-environment consistency. **SimpleCI** replaces Jenkins' complexity with a single Go binary. **Kraken CI** scales to thousands of executors with a focus on test analytics. **Pipewright** provides an all-in-one single-binary solution for CI/CD + deployment + ops. For teams requiring **enterprise support, managed runners, and deep IDE integration**, commercial platforms (GitHub Actions, CircleCI, Buildkite) remain top choices—but open-source alternatives are **completely viable** for self-hosted scenarios.
-
-
+# ⚡ Awesome Continuous Integration (CI) Platform Ecosystem 🚀
+
+<p align="center">
+  <img src="assets/banner.svg" alt="Awesome Continuous Integration Banner" width="100%" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a><a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Continuous-Integration/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Continuous-Integration?style=flat-square&color=gold" alt="GitHub Stars"/></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Continuous-Integration/network/members"><img src="https://img.shields.io/github/forks/ishandutta2007/Awesome-Continuous-Integration?style=flat-square&color=blue" alt="GitHub Forks"/></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Continuous-Integration/blob/main/LICENSE"><img src="https://img.shields.io/github/license/ishandutta2007/Awesome-Continuous-Integration?style=flat-square&color=green" alt="License"/></a>
+  <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
+</p>
 
 ---
 
+## 📌 Overview & Market Insights 📊
 
+Welcome to the definitive curated guide to **Continuous Integration (CI)** tools, **DevOps pipeline orchestrators**, **build automation engines**, and **local-first CI runners**. Continuous Integration automates building, testing, and validating code commits to shorten feedback cycles and improve software reliability across cloud and self-hosted infrastructure.
 
-**Built for DevOps engineers, platform teams, SREs, and developers.**
+> 📈 **Sector Market Size & Dynamics**: The global Continuous Integration (CI/CD) tools market is estimated at **$2.1B–$2.4B in 2026** (expanding to over $13B by 2035 at a ~21% CAGR). The sector is **moderately to highly fragmented**—while cloud hyperscalers and dev platforms (GitHub Actions, GitLab) hold high adoption, no single vendor commands a winner-take-all monopoly. Enterprises actively maintain hybrid stacks combining SaaS orchestrators with open-source local runners and containerized build engines.
 
-Making continuous integration more open, transparent, and efficient.
+---
+
+## 📑 Table of Contents 📖
+
+- [☁️ SaaS / Managed Platforms](#-saas--managed-platforms-)
+- [💻 Open-Source GitHub Projects](#-open-source-github-projects-)
+  - [⚡ Local-First & Runner Utilities](#-local-first--runner-utilities)
+  - [🏢 Full-Featured CI/CD Servers](#-full-featured-cicd-servers)
+  - [🧩 Pipeline Engines & Workflow Automation](#-pipeline-engines--workflow-automation)
+- [🤝 How to Contribute](#-how-to-contribute-)
+- [❤️ Support & Sponsorship](#-support--sponsorship-)
+- [📈 Star History](#-star-history-)
+- [⚠️ Disclaimer](#%EF%B8%8F-disclaimer-)
+
+---
+
+## ☁️ SaaS / Managed Platforms 🌐
+
+The following table summarizes commercial SaaS and managed CI platforms, sorted in descending order by **Market Valuation / Revenue / Parent Scale**:
+
+| Product 🛠️ | Company Size / Valuation / Revenue 🏢 | Starting Pricing Tier 💰 | Free Tier / Trial Limits 🎁 | Key Features & Description 📋 |
+| :--- | :--- | :--- | :--- | :--- |
+| **[GitHub Actions](https://github.com/features/actions)** | **~$40B Valuation** (Parent Microsoft: ~$3.1T Market Cap; GitHub ARR: $2B+) | **$4 / user / month** (Team plan) | **2,000 mins/mo** (Free plan), **3,000 mins/mo** (Pro) for private repos + 500MB storage. Unlimited free minutes for public repos. | GitHub-native CI/CD featuring 6,000+ Marketplace Actions. Workflows run on GitHub-hosted Linux, macOS, Windows, or self-hosted runners. |
+| **[GitLab CI/CD](https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/)** | **~$8.0B Market Cap** (FY26 Revenue: $955M) | **$29 / user / month** (Premium plan) | **400 compute mins/mo** on free accounts (up to 50k mins/mo for qualified open-source projects). | Integrated DevSecOps platform with Auto DevOps, built-in container registry, and native pipeline visualization across Linux, macOS, and Windows. |
+| **[CircleCI](https://circleci.com/)** | **~$1.7B Valuation** (ARR: ~$55M) | **$15 / month** (Performance plan, includes 30,000 credits) | **30,000 credits/mo** (~3,000 build mins on medium Linux runner) up to 5 active users. | Cloud-native CI/CD platform known for fast Docker layer caching, resource class customization, and advanced parallel test execution. |
+| **[TeamCity Cloud](https://www.jetbrains.com/teamcity/)** | **Bootstrapped / Private** (Parent JetBrains Revenue: $600M+ USD) | **$45 / month** (TeamCity Cloud); On-Premises from **$299 / year** | **14-Day Free Trial** (Cloud); **100% Free On-Premises** version for up to 100 build configurations & 3 build agents. | JetBrains' powerful CI server offering intelligence build configuration reuse, flaky test detection, and deep IDE ecosystem integration. |
+| **[Bitrise](https://www.bitrise.io/)** | **~$200M Valuation** (ARR: ~$20M–$30M) | **$99 / month** (Teams plan) | **Hobby Plan**: 2 free self-hosted Bitrise Runners + 500 monthly builds / 100k monthly tests on Bitrise Insights + 30-day trial. | Mobile CI/CD specialist optimized for iOS and Android builds, automated app store publishing, and physical device test matrixing. |
+| **[Codefresh](https://codefresh.io/)** | **~$50M Acquisition** by Octopus Deploy (Combined ARR: $60M+) | **$99 / month** (Pay-as-you-go / Team plan) | **Community Free Plan**: 1 concurrent pipeline, up to 120 builds/mo, and free distributed caching. | Kubernetes-native and GitOps-focused CI/CD platform built on top of Argo Workflows and Argo CD. |
+| **[Buildkite](https://buildkite.com/)** | **~$200M Valuation** (ARR: ~$43M) | **$15 / user / month** (Essentials plan) | **Free Personal Plan**: 1 user, 3 concurrent jobs, 90-day build history, and 500 hosted agent minutes (unlimited self-hosted agents). | Hybrid CI/CD platform combining cloud-hosted pipeline orchestration with secure self-hosted agents executing inside your own cloud or bare metal. |
+| **[Travis CI](https://travis-ci.com/)** | **Acquired by Idera, Inc.** (Private Subsidiary) | **$64 / month** (Core plan, 2 concurrent jobs) | **10,000 credit single trial** (~1,000 Linux build minutes) for new accounts + free OSS credits upon application. | Early cloud CI pioneer with straightforward `.travis.yml` syntax, supporting multi-language build matrices and automated deployments. |
+| **[Semaphore CI](https://semaphoreci.com/)** | **Private / Bootstrapped** (~$5M–$10M ARR) | **$20 / month** (Startup plan) | **$15 free recurring credit/mo** (~2,000 Ubuntu build mins/mo) + 20 GB egress & 100 GB storage. | High-performance CI/CD platform engineered for blazingly fast pipeline execution and automatic test parallelization. |
+
+---
+
+## 💻 Open-Source GitHub Projects 🔓
+
+Curated open-source continuous integration servers, runner utilities, and containerized pipeline engines. **Sorted in descending order by GitHub Star count ⭐.**
+
+| Project 📦 | Star Count ⭐ | Description 📝 |
+| :--- | :--- | :--- |
+| **[nektos/act](https://github.com/nektos/act)** | <a href="https://github.com/nektos/act/stargazers"><img src="https://img.shields.io/github/stars/nektos/act?style=social&color=white" alt="nektos/act stars"/></a> | **Run your GitHub Actions locally!** Uses Docker to parse `.github/workflows` and run jobs locally for immediate feedback without pushing code. |
+| **[harness/gitness](https://github.com/harness/gitness)** *(Drone)* | <a href="https://github.com/harness/gitness/stargazers"><img src="https://img.shields.io/github/stars/harness/gitness?style=social&color=white" alt="harness/gitness stars"/></a> | **Open-source developer platform & container-native CI engine.** Next-generation continuation of **Drone CI** with YAML pipelines and Docker execution. |
+| **[jenkinsci/jenkins](https://github.com/jenkinsci/jenkins)** | <a href="https://github.com/jenkinsci/jenkins/stargazers"><img src="https://img.shields.io/github/stars/jenkinsci/jenkins?style=social&color=white" alt="jenkinsci/jenkins stars"/></a> | **The open-source pioneer and de facto standard CI server.** Features 1,800+ plugins for automating build, test, and deployment pipelines. |
+| **[argoproj/argo-workflows](https://github.com/argoproj/argo-workflows)** | <a href="https://github.com/argoproj/argo-workflows/stargazers"><img src="https://img.shields.io/github/stars/argoproj/argo-workflows?style=social&color=white" alt="argoproj/argo-workflows stars"/></a> | **Kubernetes-native workflow engine.** Orchestrates parallel jobs and complex CI/CD DAG pipelines natively inside Kubernetes clusters. |
+| **[dagger/dagger](https://github.com/dagger/dagger)** | <a href="https://github.com/dagger/dagger/stargazers"><img src="https://img.shields.io/github/stars/dagger/dagger?style=social&color=white" alt="dagger/dagger stars"/></a> | **Programmable CI/CD engine running pipelines in containers.** Run identical pipelines locally and on any CI provider using Go, Python, or TypeScript. |
+| **[earthly/earthly](https://github.com/earthly/earthly)** | <a href="https://github.com/earthly/earthly/stargazers"><img src="https://img.shields.io/github/stars/earthly/earthly?style=social&color=white" alt="earthly/earthly stars"/></a> | **Supercharged build tool for CI/CD.** Combines the best of Dockerfile and Makefile syntax to create reproducible, isolated, parallel builds. |
+| **[tektoncd/pipeline](https://github.com/tektoncd/pipeline)** | <a href="https://github.com/tektoncd/pipeline/stargazers"><img src="https://img.shields.io/github/stars/tektoncd/pipeline?style=social&color=white" alt="tektoncd/pipeline stars"/></a> | **Cloud Native Computing Foundation (CNCF) Kubernetes-native CI/CD framework.** Standardized Custom Resource Definitions (CRDs) for building pipelines. |
+| **[concourse/concourse](https://github.com/concourse/concourse)** | <a href="https://github.com/concourse/concourse/stargazers"><img src="https://img.shields.io/github/stars/concourse/concourse?style=social&color=white" alt="concourse/concourse stars"/></a> | **Automation system based on resources, tasks, and jobs.** Expresses pipelines as pure mechanics with visual pipeline graphs and container isolation. |
+| **[woodpecker-ci/woodpecker](https://github.com/woodpecker-ci/woodpecker)** | <a href="https://github.com/woodpecker-ci/woodpecker/stargazers"><img src="https://img.shields.io/github/stars/woodpecker-ci/woodpecker?style=social&color=white" alt="woodpecker-ci/woodpecker stars"/></a> | **Community-driven fork of Drone CI.** Lightweight container-native CI engine supporting GitHub, GitLab, Gitea, and Forgejo. |
+| **[gocd/gocd](https://github.com/gocd/gocd)** | <a href="https://github.com/gocd/gocd/stargazers"><img src="https://img.shields.io/github/stars/gocd/gocd?style=social&color=white" alt="gocd/gocd stars"/></a> | **Open-source continuous delivery server.** Renowned for Value Stream Map (VSM) visualizations and complex workflow modeling. |
+| **[buildbot/buildbot](https://github.com/buildbot/buildbot)** | <a href="https://github.com/buildbot/buildbot/stargazers"><img src="https://img.shields.io/github/stars/buildbot/buildbot?style=social&color=white" alt="buildbot/buildbot stars"/></a> | **Python-based asynchronous build automation framework.** Highly customizable framework for complex build matrices and hardware testing. |
+| **[firecow/gitlab-ci-local](https://github.com/firecow/gitlab-ci-local)** | <a href="https://github.com/firecow/gitlab-ci-local/stargazers"><img src="https://img.shields.io/github/stars/firecow/gitlab-ci-local?style=social&color=white" alt="firecow/gitlab-ci-local stars"/></a> | **Run GitLab CI pipelines locally.** Test `.gitlab-ci.yml` workflows using Docker or shell executors on your workstation. |
+| **[dagu-org/dagu](https://github.com/dagu-org/dagu)** | <a href="https://github.com/dagu-org/dagu/stargazers"><img src="https://img.shields.io/github/stars/dagu-org/dagu?style=social&color=white" alt="dagu-org/dagu stars"/></a> | **Developer-friendly cron replacement & DAG execution engine.** Minimalist task scheduler with dynamic web UI for pipeline orchestration. |
+| **[agola-io/agola](https://github.com/agola-io/agola)** | <a href="https://github.com/agola-io/agola/stargazers"><img src="https://img.shields.io/github/stars/agola-io/agola?style=social&color=white" alt="agola-io/agola stars"/></a> | **Redefining CI/CD.** Self-hosted pipeline engine supporting Docker and Kubernetes backends with user-level run permissions. |
+| **[fluentci-io/fluentci-engine](https://github.com/fluentci-io/fluentci-engine)** | <a href="https://github.com/fluentci-io/fluentci-engine/stargazers"><img src="https://img.shields.io/github/stars/fluentci-io/fluentci-engine?style=social&color=white" alt="fluentci-io/fluentci-engine stars"/></a> | **Self-hosted CI/CD engine powered by Dagger and Deno.** Single-command pipeline management exportable to any major cloud CI provider. |
+| **[kraken-ci/kraken](https://github.com/kraken-ci/kraken)** | <a href="https://github.com/kraken-ci/kraken/stargazers"><img src="https://img.shields.io/github/stars/kraken-ci/kraken?style=social&color=white" alt="kraken-ci/kraken stars"/></a> | **Modern scalable test-focused CI/CD system.** Workflows written in Starlark/Python; executors scale across bare-metal, Docker, LXD, and VMs. |
+| **[huangchengsir/pipewright](https://github.com/huangchengsir/pipewright)** | <a href="https://github.com/huangchengsir/pipewright/stargazers"><img src="https://img.shields.io/github/stars/huangchengsir/pipewright?style=social&color=white" alt="huangchengsir/pipewright stars"/></a> | **Single Go binary CI/CD & deployment platform.** Zero dependencies, pipeline-as-code `.pipewright.yml`, GitOps, and anomaly detection. |
+| **[preloopdev/preloop](https://github.com/preloopdev/preloop)** | <a href="https://github.com/preloopdev/preloop/stargazers"><img src="https://img.shields.io/github/stars/preloopdev/preloop?style=social&color=white" alt="preloopdev/preloop stars"/></a> | **Local microVM GitHub Actions runner.** Executes `.github/workflows` natively inside hardware-isolated microVMs with 300ms boot time. |
+| **[haatos/simple-ci](https://github.com/haatos/simple-ci)** | <a href="https://github.com/haatos/simple-ci/stargazers"><img src="https://img.shields.io/github/stars/haatos/simple-ci?style=social&color=white" alt="haatos/simple-ci stars"/></a> | **Lightweight self-hosted CI replacing Jenkins with a Go binary.** Server-side templating with HTMX and SQLite—zero Node/Docker requirement. |
+
+---
+
+### 🛠️ Categorized Open-Source Deep Dives
+
+#### ⚡ Local-First & Runner Utilities
+- **[nektos/act](https://github.com/nektos/act)**: Run GitHub Actions workflows locally inside Docker.
+- **[firecow/gitlab-ci-local](https://github.com/firecow/gitlab-ci-local)**: Local execution engine for `.gitlab-ci.yml`.
+- **[preloop](https://github.com/preloopdev/preloop)**: MicroVM runner for uncommitted local GitHub Action debugging.
+- **[Fluent CI](https://github.com/fluentci-io/fluentci-engine)**: Dagger & Deno powered cross-platform local/cloud runner.
+- **[SimpleCI](https://github.com/haatos/simple-ci)**: Minimalist Go + HTMX self-hosted build agent.
+
+#### 🏢 Full-Featured CI/CD Servers
+- **[Jenkins](https://github.com/jenkinsci/jenkins)**: Ecosystem pioneer with 1,800+ plugins.
+- **[Gitness / Drone](https://github.com/harness/gitness)**: Container-native YAML pipeline server.
+- **[Woodpecker CI](https://github.com/woodpecker-ci/woodpecker)**: Community-owned fork of Drone CI.
+- **[GoCD](https://github.com/gocd/gocd)**: Enterprise Value Stream Map continuous delivery server.
+- **[Kraken CI](https://github.com/kraken-ci/kraken)**: Scalable Python/Starlark test automation engine.
+
+#### 🧩 Pipeline Engines & Workflow Automation
+- **[Argo Workflows](https://github.com/argoproj/argo-workflows)**: Kubernetes-native DAG workflow orchestrator.
+- **[Dagger](https://github.com/dagger/dagger)**: Programmable containerized pipeline engine.
+- **[Earthly](https://github.com/earthly/earthly)**: Reproducible build automation syntax.
+- **[Tekton](https://github.com/tektoncd/pipeline)**: CNCF standard CRD specifications for Kubernetes CI/CD.
+- **[Concourse](https://github.com/concourse/concourse)**: Stateless resource-based pipeline engine.
+
+---
+
+## 🤝 How to Contribute 🛠️
+
+Contributions are warmly welcomed! Help keep this Continuous Integration repository up-to-date and accurate:
+
+1. 🍴 **Fork** this repository.
+2. 📝 **Add or update** entries in `README.md` maintaining table formatting.
+3. 🔍 Ensure descriptions are factual, concise, and include exact pricing/limits or GitHub link details.
+4. 📥 **Open a Pull Request** with a brief summary of additions.
+
+For more awesome lists, check out [Awesome Awesome Awesome](https://github.com/ishandutta2007/Awesome-Awesome-Awesome)!
+
+---
+
+## ❤️ Support & Sponsorship ☕
+
+If you found this curated list helpful for evaluating CI/CD platforms or open-source build engines, please consider supporting the project:
+
+- ⭐ **Star this repository** to help others discover it!
+- 🔀 **Fork & Share** with your DevOps and platform engineering teams.
+- 💖 **Sponsor the Maintainer**: Buy a coffee or sponsor ongoing maintenance on the [GitHub Sponsor Dashboard](https://github.com/sponsors/ishandutta2007).
+
+---
+
+## 📈 Star History 🌟
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=ishandutta2007/Awesome-Continuous-Integration&type=date&legend=top-left)](https://star-history.dera.page/#ishandutta2007/Awesome-Continuous-Integration&type=date&legend=top-left)
+
+---
+
+## ⚠️ Disclaimer 📜
+
+- This list is **community-curated** for research, comparison, and educational purposes.
+- CI/CD platforms manage sensitive source code and environment credentials—always enforce proper access controls, OIDC trust policies, and secret management.
+- All product names, logos, and trademarks belong to their respective owners.
